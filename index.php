@@ -18,8 +18,14 @@ $result = $conn->query($sql);
       <div class="product-card">
         <?php if (!empty($row['image'])): ?>
           <img 
-            src="<?= htmlspecialchars($row['image']) ?>" 
+            src="uploads/<?= htmlspecialchars($row['image']) ?>" 
             alt="<?= htmlspecialchars($row['name']) ?>" 
+            style="max-width:100%; margin-bottom:10px; border-radius:4px;"
+          >
+        <?php else: ?>
+          <img 
+            src="uploads/default.jpeg" 
+            alt="Default Product Image" 
             style="max-width:100%; margin-bottom:10px; border-radius:4px;"
           >
         <?php endif; ?>
@@ -45,3 +51,4 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 include 'footer.php';
+?>
